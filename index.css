@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Russo+One&display=swap');
+
+/* Tailwind is loaded via CDN in index.html, so we don't use @tailwind directives here to avoid build errors */
+
+:root {
+    --color-sparta-gold: #D4AF37;
+    --color-sparta-black: #020202;
+}
+
+body {
+    background-color: var(--color-sparta-black);
+    color: white;
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+}
+
+.font-russo {
+    font-family: 'Russo One', sans-serif;
+}
+
+.font-manrope {
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Robust Text Gradient Class */
+/* Standard Background Gradient (Buttons, etc) */
+.bg-gold-gradient {
+    background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+}
+
+/* Text Gradient Class (Headers) */
+.text-gold-gradient {
+    background: linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8860B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.text-sparta-gold {
+    color: #D4AF37;
+}
+
+.bg-sparta-gold {
+    background-color: #D4AF37;
+}
+
+/* Custom Utilities */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

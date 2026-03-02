@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Video Size Checker</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #020202;
+            color: #fff;
+            margin: 0;
+        }
+
+        .card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid #eab308;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        input {
+            margin: 1rem 0;
+            color: #fff;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .limit {
+            color: #eab308;
+        }
+
+        .error {
+            color: #ef4444;
+        }
+
+        .success {
+            color: #22c55e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h2>Проверка размера видео</h2>
+        <p>Выберите файл, чтобы узнать его реальный размер:</p>
+        <input type="file" id="fileInput" accept="video/*">
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const input = document.getElementById('fileInput');
+        const result = document.getElementById('result');
+
+        input.onchange = (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const kb = (file.size / 1024).toFixed(2);
+            const limit = 500;
+
+            let html = `Размер: ${kb} КБ<br>`;
+            if (kb > limit) {
+                html += `<span class="error">❌ Слишком большое (${(kb / limit).toFixed(1)}x от лимита)</span><br>`;
+                html += `<small>Лимит: 500 КБ</small>`;
+            } else {
+                html += `<span class="success">✅ Подходит!</span><br>`;
+            }
+            result.innerHTML = html;
+        };
+    </script>
+</body>
+
+</html>
