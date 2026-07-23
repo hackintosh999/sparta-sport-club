@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sparta-sports-center.vercel.app/sitemap.xml
